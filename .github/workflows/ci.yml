@@ -12,7 +12,7 @@ permissions:
 env:
   IMAGE_NAME: ghcr.io/goncalonogueira1/mei_ss_pl12/secure-coding-api
 
-jobs:
+jobs: 
   test:
     name: Test REST API source code
     runs-on: ubuntu-latest
@@ -45,6 +45,26 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  sast-bandit:
+    name: SAST with Bandit
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.10"
+
+      - name: Install Bandit
+        run: |
+          pip install bandit
+
+      - name: Run Bandit SAST analysis
+        run: |
+          bandit -r . -x tests 
 
 
 
