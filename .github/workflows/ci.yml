@@ -10,7 +10,7 @@ permissions:
   packages: write
 
 env:
-  IMAGE_NAME: ghcr.io/${{ github.repository }}/secure-coding-api
+  IMAGE_NAME: ghcr.io/goncalonogueira1/mei_ss_pl12/secure-coding-api
 
 jobs:
   test:
@@ -45,7 +45,7 @@ jobs:
         uses: gitleaks/gitleaks-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
 
 
 
