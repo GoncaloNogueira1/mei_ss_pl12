@@ -114,7 +114,8 @@ jobs:
             format: table
             exit-code: "0"
             severity: HIGH,CRITICAL
-
+      
+      
       - name: Run container
         run: |
           docker run -d \
