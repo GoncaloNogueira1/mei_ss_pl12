@@ -1,1 +1,1 @@
-Secure coding practices notes . 123
+Secure coding practices notes
